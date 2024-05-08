@@ -19,13 +19,13 @@ Association
 ## items テーブル
 | Column           | Type      | Options     |
 | ---------------- | --------- | ----------- |
-| user             | reference | null: false, foreign_key: true |
+| user             | references  | null: false, foreign_key: true |
 | name             | string    | null: false |
 | category_id      | integer   | null: false |
 | item_statue_id   | integer   | null: false |
 | shipping_cost_id | integer   | null: false |
 | prefecture_id    | integer   | null: false |
-| text             | text      | null: false |
+| description             | text      | null: false |
 | shipping_date_id | integer   | null: false |
 | price            | integer   | null: false |
 
@@ -38,8 +38,8 @@ Association
 ## orders テーブル
 | Column    | Type      | Options     |
 | --------- | --------- | ----------- |
-| user             | reference | null: false, foreign_key: true |
-| item             | reference | null: false, foreign_key: true |
+| user             | references | null: false, foreign_key: true |
+| item             | references | null: false, foreign_key: true |
 
 Association
   belongs_to:user
@@ -49,9 +49,9 @@ Association
 ## payments テーブル
 | Column        | Type   | Options     |
 | --------------| ------ | ----------- |
-| order         | reference | null: false, foreign_key: true |
-| postcode      | string | null: false, unique: true |
-| prefecture_id | integer | null: false, unique: true |
+| order         | references | null: false, foreign_key: true |
+| postcode      | string | null: false |
+| prefecture_id | integer | null: false |
 | city          | string | null: false |
 | block         | string | null: false |
 | building      | string |
@@ -65,8 +65,8 @@ Association
 | Column    | Type      | Options     |
 | --------- | --------- | ----------- |
 | text      | text      | null: false |
-| user      | reference | null: false, foreign_key: true |
-| item      | reference | null: false, foreign_key: true |
+| user      | references | null: false, foreign_key: true |
+| item      | references | null: false, foreign_key: true |
 
 Association
   belongs_to:item
